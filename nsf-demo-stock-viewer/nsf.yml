@@ -1,0 +1,48 @@
+nsf:
+  application:
+    name: nsf-demo-stock-viewer-wbc
+    version: 0.0.1
+    desc: this is service description
+
+  server:
+    enable: true
+    address: grpc://10.182.2.107:8980
+
+  registry:
+    enable: true
+    address: http://10.182.2.107:8877/eureka/
+
+  metrics:
+    enable: true
+
+  manager:
+    patterns:
+      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.StockServiceImpl
+        methods:
+          - name: getStockList
+
+  relations:
+    services:
+      - address: http://localhost:9001
+        service: http://nsf-demo-stock-provider-wbc
+      - address: http://localhost:9002
+        service: http://nsf-demo-stock-advisor-wbc
+    versions:
+      - service: nsf-demo-stock-provider-wbc
+        version: 0.0.1
+      - service: nsf-demo-stock-advisor-wbc
+        version: 0.0.1
+
+  config:
+    enable: true
+    appId: nsf-demo-stock-viewer-wbc
+    env: dev
+    server: http://10.182.2.107:10780/
+    namespaces:
+      - name: application
+
+  authority:
+    retry: 3
+    server: http://10.182.2.107:10101
+    accessKey: 24cb4338cfde48408c57f078f7067208
+    secretKey: 8e79651a53ea4e51a610330f98ed5f85

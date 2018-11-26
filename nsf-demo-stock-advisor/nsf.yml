@@ -1,0 +1,34 @@
+nsf:
+  #  基本信息
+  application:
+    name: nsf-demo-stock-advisor-wbc
+    version: 0.0.1
+    desc: this is service description
+
+  # agent配置
+  server:
+    enable: true # 是否启用NSF Server控制中心, 默认关闭
+    skey: 123
+    address: grpc://10.182.2.107:8980
+
+  #  注册中心
+  registry:
+    enable: true # 是否启用eureka注册发现服务, 默认关闭
+    address: http://10.182.2.107:8877/eureka/
+
+  # 应用监控
+  metrics:
+    enable: true # 是否启用hystrix的metrics应用监控
+
+  # 服务鉴权配置
+  authority:
+    devMode: true
+    #是否开启外部访问免鉴权
+    enable: false
+    #认证中心地址
+    server: http://10.182.2.107:10101
+    #访问重试次数(仅403状态会重试，默认为 3 )
+    retry: 3
+    accessKey: 24cb4338cfde48408c57f078f7067208
+    secretKey: 8e79651a53ea4e51a610330f98ed5f85
+    

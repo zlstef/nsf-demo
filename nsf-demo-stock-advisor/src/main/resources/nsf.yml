@@ -1,0 +1,64 @@
+nsf:
+  #  基本信息
+  application:
+    name: nsf-demo-stock-advisor
+    version: 0.0.1
+    desc: this is service description
+
+  # agent配置
+  server:
+    enable: true # 是否启用NSF Server控制中心, 默认关闭
+    skey: 123
+    address: grpc://10.182.2.107:8980
+    #address: grpc://localhost:8866
+
+  #  注册中心
+  registry:
+    enable: true # 是否启用eureka注册发现服务, 默认关闭
+    address: http://10.182.2.107:8877/eureka/
+    #address: http://localhost:8877/eureka/
+
+  # 应用监控
+  metrics:
+    enable: true # 是否启用hystrix的metrics应用监控
+  
+  configs:
+    patterns:
+      - className: com.netease.cloud.nsf.demo.stock.advisor.web.service.impl.*
+  # 地址-服务名对应关系配置
+  relations:
+    ipServicePatterns:
+      - ip: http://localhost:9001
+        serviceName: http://nsf-demo-stock-provider
+      - ip: http://localhost:9005
+        serviceName: http://nsf-demo-stock-viewer
+    #serviceVersionPatterns:
+    #  - serviceName: nsf-demo-stock-provider
+    #  #  version: 0.0.1
+    #  - serviceName: nsf-demo-stock-viewer
+    #  #  version: 0.0.1
+  #配置中心配置（metaserver为config地址）
+  apolloConfig:
+    enable: true          #启用Apollo
+    appId: nsf-demo-stock-advisor      #对应配置中心的app.id（必须配置）
+    #env 和 meta两项在nsf-agent中均有配置，在用户侧暴露此两项是为metaServer地址改变的情况下方便测试
+    env: dev
+    metaServer: http://10.182.2.107:10780/
+    namespaces:
+      - name: application   #对应希望拉取的namespace
+        order: 3           #存在多个namespace时，生效的优先级，越小优先级越高
+      - name: application   #对应希望拉取的namespace
+        order: 2           #存在多个namespace时，生效的优先级，越小优先级越高
+        Public: true
+      - name: cxqglobal
+        order: 1
+        Public: true
+  #服务鉴权配置
+  authority:
+    #认证中心地址
+    server: http://10.182.2.107:10101
+    #访问重试次数(仅403状态会重试，默认为 3 )
+    retry: 3
+    accessKey: 3bf33f7373d34886a4a7bfdce03fe78f
+    secretKey: e6dc5e3df7784e95a720c9b0e87c9dba
+ 
