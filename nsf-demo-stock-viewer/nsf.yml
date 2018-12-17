@@ -1,48 +1,37 @@
 nsf:
+  #  基本信息
   application:
-    name: nsf-demo-stock-viewer-wbc
+    name: nsf-demo-stock-viewer-zjf
     version: 0.0.1
     desc: this is service description
 
+  # agent配置
   server:
-    enable: true
-    address: grpc://10.182.2.107:8980
+    enable: true # 是否启用NSF Server控制中心, 默认关闭
+    address: grpc://10.0.0.2:8981
 
+  #  注册中心
   registry:
-    enable: true
-    address: http://10.182.2.107:8877/eureka/
+    enable: true # 是否启用eureka注册发现服务, 默认关闭
+    address: http://10.0.0.3:9999/eureka/,http://10.0.0.4:9999/eureka/
 
+  # 应用监控
   metrics:
-    enable: true
+    enable: true # 是否启用hystrix的metrics应用监控
 
-  manager:
-    patterns:
-      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.StockServiceImpl
-        methods:
-          - name: getStockList
-
-  relations:
-    services:
-      - address: http://localhost:9001
-        service: http://nsf-demo-stock-provider-wbc
-      - address: http://localhost:9002
-        service: http://nsf-demo-stock-advisor-wbc
-    versions:
-      - service: nsf-demo-stock-provider-wbc
-        version: 0.0.1
-      - service: nsf-demo-stock-advisor-wbc
-        version: 0.0.1
-
+  # 服务鉴权配置
+  authority:
+    #认证中心地址
+    server: http://service-auth-inner.v181108.163skiff.com
+    #访问重试次数(仅403状态会重试，默认为 3 )
+    retry: 3
+    accessKey: 874f3a47e81e47f7ba82120d8cf6cb0c
+    secretKey: b0a198324c704a4292f5f86c2105be3c
+    
   config:
-    enable: true
-    appId: nsf-demo-stock-viewer-wbc
+    enable: false
+    appId: nsf-demo-stock-viewer-zjf
     env: dev
     server: http://10.182.2.107:10780/
     namespaces:
       - name: application
-
-  authority:
-    retry: 3
-    server: http://10.182.2.107:10101
-    accessKey: 24cb4338cfde48408c57f078f7067208
-    secretKey: 8e79651a53ea4e51a610330f98ed5f85
