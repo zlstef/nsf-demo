@@ -29,9 +29,12 @@ nsf:
     secretKey: b0a198324c704a4292f5f86c2105be3c
     
   config:
-    enable: false
+    enable: true
     appId: nsf-demo-stock-viewer-zjf
     env: dev
-    server: http://10.182.2.107:10780/
+    server: http://nsf-config-service-inner.v181108.163skiff.com
     namespaces:
       - name: application
+      - name: application
+        Public: true
+
