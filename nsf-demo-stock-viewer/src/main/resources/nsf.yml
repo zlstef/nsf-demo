@@ -1,66 +1,39 @@
 nsf:
   #  基本信息
   application:
-    name: nsf-demo-stock-viewer
+    name: nsf-demo-stock-viewer-zjf
     version: 0.0.1
     desc: this is service description
 
   # agent配置
   server:
     enable: true # 是否启用NSF Server控制中心, 默认关闭
-    skey: 123
-    address: grpc://10.182.2.107:8980
+    address: grpc://10.0.0.2:8981
 
   #  注册中心
   registry:
     enable: true # 是否启用eureka注册发现服务, 默认关闭
-    address: http://10.182.2.107:8877/eureka/
-    #address: http://localhost:8877/eureka/
+    address: http://10.0.0.3:9999/eureka/,http://10.0.0.4:9999/eureka/
 
   # 应用监控
   metrics:
     enable: true # 是否启用hystrix的metrics应用监控
 
-  # 方法配置
-  configs:
-    patterns:
-      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.*
-        methods: # 如果方法节点不填写代表包下面的所有方法
-        - name: getStockList # 上述匹配路径下的具体方法名称
-        - name: getStockById
-        - name: echoAdvisor
-
-  # 地址-服务名对应关系配置
-  relations:
-    ipServicePatterns:
-      - ip: http://localhost:9001
-        serviceName: http://nsf-demo-stock-provider
-      - ip: http://localhost:9002
-        serviceName: http://nsf-demo-stock-advisor
-    serviceVersionPatterns:
-      - serviceName: nsf-demo-stock-provider
-        version: 0.0.1
-      - serviceName: nsf-demo-stock-advisor
-        version: 0.0.1
-  #配置中心配置（metaserver为config地址）
-  apolloConfig:
-    enable: true          #启用Apollo
-    appId: nsf-demo-stock-viewer      #对应配置中心的app.id（必须配置）
-    #env 和 meta两项在nsf-agent中均有配置，在用户侧暴露此两项是为metaServer地址改变的情况下方便测试
-    env: dev
-    metaServer: http://10.182.2.107:10780/
-    namespaces:
-      - name: application   #对应希望拉取的namespace
-        order: 2           #存在多个namespace时，生效的优先级，越小优先级越高
-        Public: true
-      - name: cxqglobal
-        order: 1
-        Public: true  
-  #服务鉴权配置
+  # 服务鉴权配置
   authority:
     #认证中心地址
-    server: http://10.182.2.107:10101
+    server: http://service-auth-inner.v181108.163skiff.com
     #访问重试次数(仅403状态会重试，默认为 3 )
     retry: 3
-    accessKey: 88a7b4b589fe47e4a6f60c2d92994f33
-    secretKey: e9f8a1916f0b48a39515e102c85ff9a0
+    accessKey: 874f3a47e81e47f7ba82120d8cf6cb0c
+    secretKey: b0a198324c704a4292f5f86c2105be3c
+    
+  config:
+    enable: true
+    appId: nsf-demo-stock-viewer-zjf
+    env: dev
+    server: http://nsf-config-service-inner.v181108.163skiff.com
+    namespaces:
+      - name: application
+      - name: application
+        Public: true
