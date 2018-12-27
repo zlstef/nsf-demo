@@ -1,7 +1,7 @@
 nsf:
   #  基本信息
   application:
-    name: nsf-demo-stock-viewer-zjf
+    name: nsf-demo-stock-viewer-zl
     version: 0.0.1
     desc: this is service description
 
@@ -25,12 +25,12 @@ nsf:
     server: http://service-auth-inner.v181108.163skiff.com
     #访问重试次数(仅403状态会重试，默认为 3 )
     retry: 3
-    accessKey: 874f3a47e81e47f7ba82120d8cf6cb0c
-    secretKey: b0a198324c704a4292f5f86c2105be3c
+    accessKey: b4e2997c13a14140b76856e391b1cb06
+    secretKey: 08ac783bfcbe4e6084bd1789419be20c
     
   config:
     enable: true
-    appId: nsf-demo-stock-viewer-zjf
+    appId: nsf-demo-stock-viewer-zl
     env: dev
     server: http://nsf-config-service-inner.v181108.163skiff.com
     namespaces:
