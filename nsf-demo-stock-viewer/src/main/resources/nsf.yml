@@ -37,3 +37,7 @@ nsf:
       - name: application
       - name: application
         Public: true
+  # 方法配置
+  manager:
+    patterns:
+      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.*
