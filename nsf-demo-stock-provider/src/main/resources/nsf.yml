@@ -1,7 +1,7 @@
 nsf:
   #  基本信息
   application:
-    name: nsf-demo-stock-provider-zl
+    name: nsf-demo-stock-provider-zl-1108
     version: 0.0.1
     desc: provider-zl
 
@@ -25,12 +25,12 @@ nsf:
     server: http://service-auth-inner.v181108.163skiff.com
     #访问重试次数(仅403状态会重试，默认为 3 )
     retry: 3
-    accessKey: b4e2997c13a14140b76856e391b1cb06
-    secretKey: 08ac783bfcbe4e6084bd1789419be20c
+    accessKey: d2e8d39df3d34d44a5cc3309bda6727f
+    secretKey: e6801de6070749c983b6bc5ee03ebec6
     
   config:
     enable: true
-    appId: nsf-demo-stock-provider-zl
+    appId: nsf-demo-stock-provider-zl-1108
     env: dev
     server: http://nsf-config-service-inner.v181108.163skiff.com
     namespaces:
