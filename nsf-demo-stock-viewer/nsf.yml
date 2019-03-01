@@ -18,6 +18,11 @@ nsf:
   # 应用监控
   metrics:
     enable: true # 是否启用hystrix的metrics应用监控
+    
+  # 方法配置
+  configs:
+    patterns:
+      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.*
 
   # 服务鉴权配置
   authority:
