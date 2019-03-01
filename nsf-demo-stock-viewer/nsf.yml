@@ -40,6 +40,5 @@ nsf:
     server: http://nsf-config-service-inner.v181108.163skiff.com
     namespaces:
       - name: application
-      - name: application
         Public: true
 
