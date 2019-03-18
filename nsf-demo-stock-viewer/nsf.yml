@@ -8,12 +8,12 @@ nsf:
   # agent配置
   server:
     enable: true # 是否启用NSF Server控制中心, 默认关闭
-    address: grpc://10.0.0.2:8981
+    address: nsf-server.v190129.163skiff.com
 
   #  注册中心
   registry:
     enable: true # 是否启用eureka注册发现服务, 默认关闭
-    address: http://10.0.0.3:9999/eureka/,http://10.0.0.4:9999/eureka/
+    address: nsf-registry.v190129.163skiff.com
 
   # 应用监控
   metrics:
@@ -27,7 +27,7 @@ nsf:
   # 服务鉴权配置
   authority:
     #认证中心地址
-    server: http://service-auth-inner.v181108.163skiff.com
+    server: platform-service-auth.v190129.163skiff.com
     #访问重试次数(仅403状态会重试，默认为 3 )
     retry: 3 
     accessKey: da0ec63fa0fe4ff19e7035b29a583ac3
@@ -37,7 +37,7 @@ nsf:
     enable: true
     appId: nsf-demo-stock-viewer
     env: dev
-    server: http://nsf-config-service-inner.v181108.163skiff.com
+    server: http://nsf-config-service-inner.v190129.163skiff.com
     namespaces:
       - name: application
         Public: true
