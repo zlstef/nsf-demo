@@ -13,7 +13,7 @@ nsf:
   #  注册中心
   registry:
     enable: true # 是否启用eureka注册发现服务, 默认关闭
-    address: nsf-registry.v190129.163skiff.com
+    address: nsf-registry.v190129.163skiff.com/eureka
 
   # 应用监控
   metrics:
