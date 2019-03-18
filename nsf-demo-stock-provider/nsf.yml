@@ -1,38 +1,43 @@
 nsf:
   #  基本信息
   application:
-    name: nsf-demo-stock-provider-0301
+    name: nsf-demo-stock-provider
     version: 0.0.1
     desc: this is service description
 
   # agent配置
   server:
     enable: true # 是否启用NSF Server控制中心, 默认关闭
-    address: grpc://10.0.0.2:8981
+    address: grpc://172.16.0.2:8981
 
   #  注册中心
   registry:
     enable: true # 是否启用eureka注册发现服务, 默认关闭
-    address: http://10.0.0.3:9999/eureka/,http://10.0.0.4:9999/eureka/
+    address: http://nsf-registry.v190129.163skiff.com/eureka/
 
   # 应用监控
   metrics:
     enable: true # 是否启用hystrix的metrics应用监控
+    
+  # 方法配置
+  manager:
+    patterns:
+      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.*
 
   # 服务鉴权配置
   authority:
     #认证中心地址
-    server: http://service-auth-inner.v181108.163skiff.com
+    server: http://platform-service-auth.v190129.163skiff.com
     #访问重试次数(仅403状态会重试，默认为 3 )
-    retry: 3
-    accessKey: 052398cb07684107bc1185fdba6a8191
-    secretKey: e95c2fead26f4a2ba9a3d817ec1e9ad1
+    retry: 3 
+    accessKey: da0ec63fa0fe4ff19e7035b29a583ac3
+    secretKey: d399dadc548a4c7396fc840df164ee11
     
   config:
-    enable: false
-    appId: nsf-demo-stock-provider-0301
+    enable: true
+    appId: nsf-demo-stock-provider
     env: dev
-    server: http://10.182.2.107:10780/
+    server: http://nsf-config-service.v190129.163skiff.com
     namespaces:
       - name: application
-    
+        Public: true
