@@ -37,7 +37,7 @@ nsf:
     enable: true
     appId: nsf-demo-stock-viewer
     env: dev
-    server: http://nsf-config-service-inner.v190129.163skiff.com
+    server: http://nsf-config-service.v190129.163skiff.com
     namespaces:
       - name: application
         Public: true
