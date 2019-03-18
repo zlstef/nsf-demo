@@ -8,7 +8,7 @@ nsf:
   # agent配置
   server:
     enable: true # 是否启用NSF Server控制中心, 默认关闭
-    address: nsf-server.v190129.163skiff.com
+    address: 172.16.0.2:8981
 
   #  注册中心
   registry:
