@@ -2,7 +2,7 @@ nsf:
   #  基本信息
   application:
     name: nsf-demo-stock-provider
-    version: 0.0.1
+    version: 0.0.2
     desc: this is service description
 
   # agent配置
