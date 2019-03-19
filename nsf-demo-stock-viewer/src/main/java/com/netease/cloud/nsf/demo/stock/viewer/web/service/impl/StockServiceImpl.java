@@ -45,7 +45,7 @@ public class StockServiceImpl implements IStockService {
         String stocksStr = restTemplate.getForObject(finalUrl, String.class);
         stocks = CastKit.str2StockList(stocksStr);
         log.info("get all stocks from {} successful : {}", finalUrl, stocks);
-        return stocks;
+        return 123;
     }
 
 
