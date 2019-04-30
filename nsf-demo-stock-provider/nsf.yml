@@ -5,8 +5,8 @@ nsf:
     version: 0.0.3
     desc: this is service description
     tags:
-	       - key: appname 
-	       value: provider
+         - key: appname 
+         value: provider
 
   # agent配置
   server:
