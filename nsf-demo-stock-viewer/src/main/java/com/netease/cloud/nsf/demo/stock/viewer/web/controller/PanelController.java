@@ -116,7 +116,7 @@ public class PanelController {
     @GetMapping("/health")
     @ResponseBody
     public String health() {
-    	return "I am good! chanaged in eclipse ";
+    	return "I am good! chanaged in eclipse- changed in github";
     }
     
     @RequestMapping("/deepInvoke")
