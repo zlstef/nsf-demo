@@ -30,8 +30,8 @@ nsf:
     server: http://platform-service-auth.v190129.163skiff.com
     #访问重试次数(仅403状态会重试，默认为 3 )
     retry: 3 
-    accessKey: da0ec63fa0fe4ff19e7035b29a583ac3
-    secretKey: d399dadc548a4c7396fc840df164ee11
+    accessKey: 9795a19ea35a44d59b275a980497cfc6
+    secretKey: 1b028c39e39a463099671c10cc88f5da
     
   config:
     enable: true
