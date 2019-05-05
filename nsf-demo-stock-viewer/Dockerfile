@@ -8,7 +8,6 @@ RUN cd /usr/local/tomcat/webapps && \
     mv nsf*.war ROOT.war && \
     rm -rf ROOT 
     
-# RUN wget "http://dev-test.netease.com/filemanager?path=/nsf-agent-release/nsf-agent-develop-20180920-20180921-115128-42bf4002.jar" -O nsf-agent.jar
 
 RUN wget "http://v190129.163skiff.com/download/nsf-agent.jar" 
 
