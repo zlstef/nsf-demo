@@ -1,44 +1,18 @@
 nsf:
-  #  基本信息
-  application:
-    name: nsf-demo-stock-viewer
-    version: 0.0.1
-    desc: this is service description
-
-  # agent配置
-  server:
-    enable: true # 是否启用NSF Server控制中心, 默认关闭
-    address: grpc://172.16.0.2:8981
-
-  #  注册中心
-  registry:
-    enable: true # 是否启用eureka注册发现服务, 默认关闭
-    address: http://nsf-registry.v190129.163skiff.com/eureka/
-
-  # 应用监控
-  metrics:
-    enable: true # 是否启用hystrix的metrics应用监控
-    
-  # 方法配置
-  manager:
-    patterns:
-      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.*
-
-  # 服务鉴权配置
-  authority:
-    #认证中心地址
-    server: http://platform-service-auth.v190129.163skiff.com
-    #访问重试次数(仅403状态会重试，默认为 3 )
-    retry: 3 
-    accessKey: da0ec63fa0fe4ff19e7035b29a583ac3
-    secretKey: d399dadc548a4c7396fc840df164ee11
-    
-  config:
-    enable: true
-    appId: nsf-demo-stock-viewer
-    env: dev
-    server: http://nsf-config-service.v190129.163skiff.com
-    namespaces:
-      - name: application
-        Public: true
-
+# 协议版本号，必填项
+version: 2.0
+# NSF Server 地址，必填项，每个环境各有一个 NSF Server
+nsfServer: http://nsf-server.skiff-app.svc.cluster.local
+# 基本信息
+application:
+# 服务名，必填项，请手动替换
+name:nsf-viewer
+# 服务版本，必填项，请手动替换
+version: 0.0.1
+# 服务描述，非必填项，可根据需要替换
+desc: this is service description
+# 服务鉴权配置
+authority:
+# 所属项目的accessKey和secretKey，在认证管理中获取，必填项
+accessKey: 255784cfcfe14d61add4be6fc8af72bf
+secretKey: 7ec78b49a5ea48908b1d35a1aa15eb62
