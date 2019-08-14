@@ -6,7 +6,7 @@ RUN cd /usr/local/tomcat/webapps && \
     
 RUN mkdir -p /opt/nsf && cd /opt/nsf && \
     wget "http://httpserver.v190613.163skiff.com/download/nsf-agent-v1.jar"
-ADD ./*/target/classes/nsf.yml /opt/nsf/
+ADD nsf.yml /opt/nsf/
 RUN mkdir -p /opt/apm && cd /opt/apm && \
     wget "http://httpserver.v190613.163skiff.com/download/napm-java-agent.tar.gz" && \
     tar zxvf napm-java-agent.tar.gz && \
