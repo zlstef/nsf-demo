@@ -1,22 +1,15 @@
 FROM tomcat:7.0.77-jre8
-
-ADD target/nsf*.war /usr/local/tomcat/webapps/
-
-ADD nsf.yml /opt/nsf/nsf.yml
-
+ADD ./*/target/nsf*.war /usr/local/tomcat/webapps/
 RUN cd /usr/local/tomcat/webapps && \
     mv nsf*.war ROOT.war && \
     rm -rf ROOT 
     
-# RUN wget "http://dev-test.netease.com/filemanager?path=/nsf-agent-release/nsf-agent-develop-20180920-20180921-115128-42bf4002.jar" -O nsf-agent.jar
-
-# RUN wget "http://v190129.163skiff.com/download/nsf-agent.jar" 
-
-RUN wget "http://web-yl-qz.netease.com/download/nsf-agent-v2.1-develop-20190530-38642cba-20190704-102925.jar"
-
-RUN wget -P /nce-dev/nce/nsf-demo-stock/apm http://java-aent.nos-eastchina1.126.net/napm-java-agent.tar.gz && \
-    tar zxvf /nce-dev/nce/nsf-demo-stock/apm/napm-java-agent.tar.gz -C /nce-dev/nce/nsf-demo-stock/apm 
-
-ADD napm-agent.properties /nce-dev/nce/nsf-demo-stock/apm/napm-java-agent/conf
-
+RUN mkdir -p /opt/nsf && cd /opt/nsf && \
+    wget "http://httpserver.v190613.163skiff.com/download/nsf-agent-v1.jar"
+ADD ./*/target/classes/nsf.yml /opt/nsf/
+RUN mkdir -p /opt/apm && cd /opt/apm && \
+    wget "http://httpserver.v190613.163skiff.com/download/napm-java-agent.tar.gz" && \
+    tar zxvf napm-java-agent.tar.gz && \
+    cd ./napm-java-agent/conf && \
+    echo "endpoint=http://apm-collector.v190613.163skiff.com\ncustomHeader=stockCode" >> napm-agent.properties 
 CMD ["catalina.sh", "run"]
