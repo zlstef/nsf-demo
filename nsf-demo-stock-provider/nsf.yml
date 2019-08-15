@@ -1,43 +1,21 @@
 nsf:
-  #  基本信息
+  version: 2.0
+  nsfServer: http://nsf-server.v190613.163skiff.com
   application:
-    name: nsf-demo-stock-provider
-    version: 0.0.1
-    desc: this is service description
+    name: stock-provider-zl
+    version: 0.0.2
 
-  # agent配置
-  server:
-    enable: true # 是否启用NSF Server控制中心, 默认关闭
-    address: grpc://172.16.0.2:8981
+  config:
+    enable: True          #启用Apollo
+    appId: stock-provider-zl      #对应配置中心的app.id（必须配置）
 
-  #  注册中心
-  registry:
-    enable: true # 是否启用eureka注册发现服务, 默认关闭
-    address: http://nsf-registry.v190129.163skiff.com/eureka/
-
-  # 应用监控
-  metrics:
-    enable: true # 是否启用hystrix的metrics应用监控
-    
   # 方法配置
   manager:
     patterns:
-      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.*
+      - className: com.netease.cloud.nsf.demo.stock.provider.web.service.impl.*
 
   # 服务鉴权配置
   authority:
-    #认证中心地址
-    server: http://platform-service-auth.v190129.163skiff.com
-    #访问重试次数(仅403状态会重试，默认为 3 )
-    retry: 3 
-    accessKey: da0ec63fa0fe4ff19e7035b29a583ac3
-    secretKey: d399dadc548a4c7396fc840df164ee11
-    
-  config:
-    enable: true
-    appId: nsf-demo-stock-provider
-    env: dev
-    server: http://nsf-config-service.v190129.163skiff.com
-    namespaces:
-      - name: application
-        Public: true
+    server:
+    accessKey: 6cc933e68d734d06ba75983b55c3b5bf
+    secretKey: d0d6f48e4e7e40939e0ef1fc3ca1cef5
