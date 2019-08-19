@@ -2,7 +2,7 @@ nsf:
   version: 2.0
   nsfServer: http://nsf-server.v190613.163skiff.com
   application:
-    name: stock-provider-zl
+    name: stock-advisor-zl
     version: 0.0.2
 
   config:
