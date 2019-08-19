@@ -7,7 +7,7 @@ nsf:
 
   config:
     enable: True          #启用Apollo
-    appId: stock-provider-zl      #对应配置中心的app.id（必须配置）
+    appId: stock-advisor-zl      #对应配置中心的app.id（必须配置）
 
   # 方法配置
   manager:
