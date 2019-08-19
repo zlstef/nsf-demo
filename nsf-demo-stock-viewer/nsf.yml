@@ -4,9 +4,12 @@ nsf:
   application:
     name: stock-viewer-zl
     version: 0.0.2
+    tags:
+      - key: group
+        value: stock
 
   config:
-    enable: True          #启用Apollo
+    enable: true          #启用Apollo
     appId: stock-viewer-zl      #对应配置中心的app.id（必须配置）
 
   # 方法配置
