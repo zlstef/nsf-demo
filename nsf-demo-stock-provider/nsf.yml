@@ -4,6 +4,12 @@ nsf:
   application:
     name: stock-provider-zl
     version: 0.0.2
+    tags:
+      - key: group
+        value: stock
+        key: tier
+        value: backend
+            
 
   config:
     enable: True          #启用Apollo
