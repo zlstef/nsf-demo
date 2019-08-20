@@ -8,9 +8,9 @@ nsf:
     tags:
       - key: group
         value: stock
-        key: tier
+      - key: tier
         value: backend
-        key: env
+      - key: env
         value: mesh-test
 
   config:
